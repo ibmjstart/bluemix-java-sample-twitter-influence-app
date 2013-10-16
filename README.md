@@ -33,7 +33,7 @@ Using the terminal/command line interface:
 
             To access the Twitter API you need the consumer keys and access tokens, so you must register the app with Twitter. You can register your app [here](https://dev.twitter.com/).
 
-            [More information on how to register the app with [Twitter](registerTwitter.md)
+            [More information on how to register the app with Twitter](registerTwitter.md)
 
         -   **Klout API:**
 
