@@ -65,7 +65,7 @@ Using the terminal/command line interface:
         
         ![Deploy steps](/images/push-app1.png)
 
-        ![Deploy steps](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/push-app-2.png)
+        ![Deploy steps](/images/push-app-2.png)
 
         ![Deploy steps](/images/push-app-3.png)
 
