@@ -20,10 +20,10 @@ Using the terminal/command line interface:
 -   **Overview of the app:** This is a Java Web(Standalone) app that uses the following cloud service:
     -   MongoDB (backend database)
 
--   **Deploying the app:**
+-   **Download and modify app code:**
     -   **Download the app**
         - clone the current repository, i.e. 
-            **git clone http://xx.xx/somerepo.git**
+            **git clone https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git**
 
     -   **External and Public APIs:**
 
