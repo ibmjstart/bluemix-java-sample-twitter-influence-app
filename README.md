@@ -45,7 +45,7 @@ Using the terminal/command line interface:
 
         -   The twitter credentials are entered in the file called as twitter4j.properties which is present in the classpath (src directory). Just copy paste the credentials in twitter4j.properties file that you get after registering the app with twitter. Also the Klout API key is entered in the file called klout.properties present in the classpath as shown below:
 
-            ![image](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/klout_key.png)
+            ![image](/images/klout_key.png)
 
     -   **Deploy the App:**
 
@@ -63,11 +63,11 @@ Using the terminal/command line interface:
 
         Here are  some snapshots of how one would deploy the app and create services required for the app: 
         
-        ![Deploy steps](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/push-app1.png)
+        ![Deploy steps](/images/push-app1.png)
 
         ![Deploy steps](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/push-app-2.png)
 
-        ![Deploy steps](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/push-app-3.png)
+        ![Deploy steps](/images/push-app-3.png)
 
 
     -   After the application is deployed using **cf push**, you can check the status of the app using the following command: **cf apps**. If the status is RUNNING, you can hit the URL in the browser and see the application is running.
@@ -87,13 +87,13 @@ Some screen-shots of the running app
 
 -   This is the home screen of the app. You can enter a twitter screen name in the text box and click the Analyze button to see their influence. You can also view any records saved in the database by clicking on the 'View Database' button.
 
-    ![image](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/home.png)
+    ![image](/images/home.png)
 
 -   After entering the twitter name and clicking the Analyze button, you'll be able to see the influence analysis of that person on the left side. You will also see their last 10 tweets and any recent mentions in the tweets plotted on Google Maps (if there is geolocation data for a tweet).
 
-    ![image](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/results.png)
+    ![image](/images/results.png)
 
 -   These are the records of the Influencers in the database. The user can also delete the records.
 
-    ![image](http://git.w3.bluemix.net/jmsova/test-twitter/raw/master/images/saved_records.png)
+    ![image](/images/saved_records.png)
 
