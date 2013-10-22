@@ -27,5 +27,5 @@ How to register the app with Twitter:
 
     ![image](/images/access_tokens.png)
 
--   You can just copy these tokens (consumer key, consumer secret, access token, access token secret) in your application and you are all set to use the Twitter API. You will need to check the [documentaion](https://dev.twitter.com/docs/api/1.1) to use the various REST APIs.
+-   You can just copy these tokens (consumer key, consumer secret, access token, access token secret) in your application and you are all set to use the Twitter API. You will need to check the [documentation](https://dev.twitter.com/docs/api/1.1) to use the various REST APIs.
 
