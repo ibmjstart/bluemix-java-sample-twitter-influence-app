@@ -15,7 +15,26 @@ Using the terminal/command line interface:
     -   Once Ruby is installed, cf can be installed by using the **gem install** command:
         
         \> **gem install cf**
-
+        
+-   **Download and Load App Into Eclipse**
+    - There are two ways to download the app and import it into Eclipse:
+        - 1. Import the Eclipse project by following these instructions:
+            - A. clone the current repository, i.e. 
+                    **git clone https://github.com/ibmjstart/bluemix-java-twitter-search.git** 
+            - B. Open Eclipse
+            - C. Then File->Import
+            - D. Under the header labeled "General", click "Existing Projects Into Workspace" and click Next
+            - E. Click "Browse" next to the first text field, and navigate to the cloned repository and find the folder labeled "app" and click ok.
+            - F. Under Projects you should now see a project called "TwitterSearch", make sure the checkbox next to the "TwitterSearch" project is checked and then click "Finish
+            - G. You should now see the "TwitterSearch" project in your list of projects in Eclipse.
+        
+        - 2. Import the WAR File
+            - A. Navigate to https://github.com/ibmjstart/bluemix-java-twitter-search/releases
+            - B. Click the green button labeled "TwitterSearch.war" and that will download the WAR file.
+            - C. Open Eclipse
+            - D. Then File->Import
+            - E. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
+            - F. Click next and then Finish and the project should be imported into Eclipse
 
 -   **Overview of the app:** This is a Java Web(Standalone) app that uses the following cloud service:
     -   MongoDB (backend database)
