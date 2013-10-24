@@ -1,9 +1,6 @@
 Instructions to run the Twitter Influence Analyzer Application(Java version):
 ==========================================
 
-Running/Deploying the app on CloudFoundry:
--------------------------------------------------------
-
 
 Using the terminal/command line interface:
 ------------------------------------------
