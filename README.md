@@ -26,8 +26,8 @@ Using the terminal/command line interface:
             - G. You should now see the "TwitterSearch" project in your list of projects in Eclipse.
         
         - 2. Import the WAR File
-            - A. Navigate to https://github.com/ibmjstart/bluemix-java-twitter-search/releases
-            - B. Click the green button labeled "TwitterSearch.war" and that will download the WAR file.
+            - A. Navigate to https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/releases
+            - B. Click the green button labeled "twitter_influence_analyzer.war" and that will download the WAR file.
             - C. Open Eclipse
             - D. Then File->Import
             - E. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
