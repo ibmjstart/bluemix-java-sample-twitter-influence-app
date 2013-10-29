@@ -1,115 +1,109 @@
-Instructions to run the Twitter Influence Analyzer Application(Java version):
+# How to Run and Deploy the Twitter Influence Analyzer #
 ==========================================
 
+## Prerequisites ##
 
-Using the terminal/command line interface:
-------------------------------------------
+Before we begin, we first need to install the command line tool that will be used to upload and manage your application. Cloud Foundry uses a tool called [**cf**](https://github.com/cloudfoundry/cf). This tool is written in Ruby, so you must have Ruby installed. If you are running on Windows, you can install Ruby from [this](http://rubyinstaller.org/downloads/) website. 
 
--   **Prerequisites:**
-    -   Before we begin, we first need to install the command line tool that will be used to upload and manage your application. Cloud Foundry uses a tool called [**cf**](https://github.com/cloudfoundry/cf). This is a Ruby application, so you must have Ruby installed. If you are running on Windows, you can install Ruby from [this](http://rubyinstaller.org/downloads/) website. 
-    -   For Linux systems, consult your documentation for how to install the **ruby** package - for Ubuntu the command **apt-get install ruby** should work for you.
+For Linux systems, consult your documentation for how to install the **ruby** package - for Ubuntu the command:
 
-    -   Once Ruby is installed, cf can be installed by using the **gem install** command:
+		apt-get install ruby
+
+should work for you.
+
+Once Ruby is installed, cf can be installed by using the **gem install** command:
         
-        \> **gem install cf**
+		gem install cf
         
--   **Download and Load App Into Eclipse**
-    - There are two ways to download the app and import it into Eclipse:
-        - 1. Import the Eclipse project by following these instructions:
-            - A. clone the current repository, i.e. 
-                    **git clone https://github.com/ibmjstart/bluemix-java-twitter-search.git** 
-            - B. Open Eclipse
-            - C. Then File->Import
-            - D. Under the header labeled "General", click "Existing Projects Into Workspace" and click Next
-            - E. Click "Browse" next to the first text field, and navigate to the cloned repository and find the folder labeled "app" and click ok.
-            - F. Under Projects you should now see a project called "TwitterSearch", make sure the checkbox next to the "TwitterSearch" project is checked and then click "Finish
-            - G. You should now see the "TwitterSearch" project in your list of projects in Eclipse.
-        
-        - 2. Import the WAR File
-            - A. Navigate to https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/releases
-            - B. Click the green button labeled "twitter_influence_analyzer.war" and that will download the WAR file.
-            - C. Open Eclipse
-            - D. Then File->Import
-            - E. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
-            - F. Click next and then Finish and the project should be imported into Eclipse
+## Download the App ##
 
--   **Overview of the app:** This is a Java Web(Standalone) app that uses the following cloud service:
-    -   MongoDB (backend database)
+The source for this app is at GitHub so, for example, if you are using the command line you can clone the repository like this:
 
--   **Download and modify app code:**
-    -   **Download the app**
-        - clone the current repository, i.e. 
-            **git clone https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git**
+		git clone https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git
+		
+If you want to use Eclipse to work on it, there are two ways you can get the source into Eclipse:
 
-    -   **External and Public APIs:**
+1. Import the Eclipse project by following these instructions:
+	1. Start by cloning the repository, as described above
+	2. Open Eclipse
+	3. Select File->Import
+	4. Under the header labeled "General", click "Existing Projects Into Workspace" and click Next
+	5. Click "Browse" next to the first text field, and navigate to the cloned repository and find the folder labeled "app" and click ok.
+	6. Under Projects you should now see a project called "twitter_influence_analyzer", make sure the checkbox next to the "twitter_influence_analyzer" project is checked and then click Finish
+	7. You should now see the "twitter_influence_analyzer" project in your list of projects in Eclipse.
 
-        This app uses some external APIs. You need to register the app with Twitter and Klout to get the keys and tokens.
+2. Import the WAR File
+	1. Navigate to https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/releases
+	2. Click the green button labeled "twitter_influence_analyzer.war" and that will download the WAR file.
+	3. Open Eclipse
+	4. Then File->Import
+	5. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
+	6. Click next and then Finish and the project should be imported into Eclipse
 
-        -   **Twitter v1.1 API:**
+This is a Java app that uses the following cloud services:
 
-            To access the Twitter API you need the consumer keys and access tokens, so you must register the app with Twitter. You can register your app [here](https://dev.twitter.com/).
+-	Company Text Analytics Service
+-   Name Text Analytics Service
+-   MongoDB (backend database)
 
-            [More information on how to register the app with Twitter](registerTwitter.md)
+## External and Public APIs ##
 
-        -   **Klout API:**
+This app uses some external APIs. You need to register the app with Twitter and Klout to get the keys and tokens.
 
-            You can register the app with Klout [here](http://developer.klout.com/member/). When you register with Klout, you'll get a Klout Key, which you can use to create a Klout Object as shown in the code.
+### Twitter v1.1 API ###
 
-        -   **Google Maps v3 API:**
+To access the Twitter API you need the consumer keys and access tokens, so you must register the app with Twitter. You can register your app [here](https://dev.twitter.com/).
 
-            This app uses the Google Maps v3 APIs. Google APIs are open for the developers and you do not need to register the app with Google. Here's the [link](https://developers.google.com/maps/documentation/javascript/tutorial) for the Google Maps APIs.
+[More information on how to register the app with Twitter](registerTwitter.md)
 
-        -   The twitter credentials are entered in the file called as twitter4j.properties which is present in the classpath (src directory). Just copy paste the credentials in twitter4j.properties file that you get after registering the app with twitter. Also the Klout API key is entered in the file called klout.properties present in the classpath as shown below:
+### Klout API ###
 
-            ![image](/images/klout_key.png)
+You can register the app with Klout [here](http://developer.klout.com/member/). When you register with Klout, you'll get a Klout Key, which you can use to create a Klout Object as shown in the code.
 
-    -   **Deploy the App:**
+### Google Maps v3 API ###
 
-        Now that you have included the twitter keys and tokens and klout key as shown above, you are all set to deploy the app. In the terminal, go in the directory of the app. The application is wrapped in a WAR file. You can directly deploy/push the WAR file using push command:
+This app uses the Google Maps v3 APIs. Google APIs are open for the developers and you do not need to register the app with Google. Here's the [link](https://developers.google.com/maps/documentation/javascript/tutorial) for the Google Maps APIs.
 
-        \> **cf push**
+The twitter credentials are entered in the file called as twitter4j.properties which is present in the classpath (src directory). Just copy paste the credentials in twitter4j.properties file that you get after registering the app with twitter. Also the Klout API key is entered in the file called klout.properties present in the classpath as shown below:
 
-        Just follow the instructions on the screen. You can select the default settings for deploying the app, i.e. for URL, memory reservations (512 Recommended), number of instances. You need to bind the MongoDB service to the app.
+![image](/images/klout_key.png)
 
-        Binding a Service to Your App
+## Deploying the App ##
 
-        -   Create the service instance and bind the service instance while deploying the app. The **cf push** command will ask, "Create services to bind to 'appname'?" Answer yes and go through the menu. See the screenshots of a sample app push below for more clarity. 
+Once you have included the Twitter keys and tokens and Klout key as shown above, you are all set to deploy the app. In the terminal, go in the directory of the app. The application is wrapped in a WAR file. You can directly deploy/push the WAR file using push command:
 
-        Note: This app expects details of the mongoDB service to be present in the environment variables and will generate exception if you try to deploy it without first binding the service.
+		cf push
 
-        Here are  some snapshots of how one would deploy the app and create services required for the app: 
-        
-        ![Deploy steps](/images/push-app1.png)
+Just follow the instructions on the screen. You can select the default settings for deploying the app, i.e. for URL, memory reservations (512 Recommended), number of instances. You need to bind the MongoDB service to the app.
 
-        ![Deploy steps](/images/push-app-2.png)
+### Binding a Service to Your App ###
 
-        ![Deploy steps](/images/push-app-3.png)
+For the app to function correctly, you must create the service instance and bind the service instance while deploying the app. The **cf push** command will ask, "Create services for application?" Answer yes, then you will be presented with a list of services. Choose **mongodb** from this list. Below, you can see some screenshots of what this should look like when deploying from the command line.
 
+![Deploy steps](/images/push-app1.png)
 
-    -   After the application is deployed using **cf push**, you can check the status of the app using the following command: **cf apps**. If the status is RUNNING, you can hit the URL in the browser and see the application is running.
+![Deploy steps](/images/push-app-2.png)
 
+![Deploy steps](/images/push-app-3.png)
 
-Troubleshooting
------------------------------------
+-   After the application is deployed using **cf push**, you can check the status of the app using the following command: **cf apps**. If the status is RUNNING, you can hit the URL in the browser and see the application is running.
+
+## Troubleshooting ##
+
 -   Sometimes your app may not work as expected and debugging needs to be done. The cf command line tool can be used to assist with debugging. With the cf you can check your app's logs by typing the command **cf logs [app_name]** 
-
 -   When you first start using the cf tool, you may potentially have trouble logging in due to no target being set. To view the target that is set, type **cf target** and if you want to set a new target type **cf target [target_url]**. Note: The target URL will usually be in the form of http://api.xxx.tld
-
 -   From time to time your app may stop working, this means it could require a restart. To do this you must first stop it by typing **cf stop**. Once the app has been stopped, you can type **cf start** and if there are no other problems your app should start. 
 
+## Screenshots ##
 
-Some screen-shots of the running app
-------------------------------------
+This is the home screen of the app. You can enter a twitter screen name in the text box and click the Analyze button to see their influence. You can also view any records saved in the database by clicking on the 'View Database' button.
 
--   This is the home screen of the app. You can enter a twitter screen name in the text box and click the Analyze button to see their influence. You can also view any records saved in the database by clicking on the 'View Database' button.
+![image](/images/home.png)
 
-    ![image](/images/home.png)
+After entering the twitter name and clicking the Analyze button, you'll be able to see the influence analysis of that person on the left side. You will also see their last 10 tweets and any recent mentions in the tweets plotted on Google Maps (if there is geolocation data for a tweet).
 
--   After entering the twitter name and clicking the Analyze button, you'll be able to see the influence analysis of that person on the left side. You will also see their last 10 tweets and any recent mentions in the tweets plotted on Google Maps (if there is geolocation data for a tweet).
+![image](/images/results.png)
 
-    ![image](/images/results.png)
+These are the records of the Influencers in the database. The user can also delete the records.
 
--   These are the records of the Influencers in the database. The user can also delete the records.
-
-    ![image](/images/saved_records.png)
-
+![image](/images/saved_records.png)
