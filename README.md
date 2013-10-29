@@ -1,5 +1,4 @@
 # How to Run and Deploy the Twitter Influence Analyzer #
-==========================================
 
 ## Prerequisites ##
 
