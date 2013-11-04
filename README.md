@@ -65,7 +65,7 @@ This app uses the Google Maps v3 APIs. Google APIs are open for the developers a
 
 The twitter credentials are entered in the file called as twitter4j.properties which is present in the classpath (src directory). Just copy paste the credentials in twitter4j.properties file that you get after registering the app with twitter. Also the Klout API key is entered in the file called klout.properties present in the classpath as shown below:
 
-![image](/images/klout_key.png)
+![image](images/klout_key.png)
 
 ## Deploying the App ##
 
@@ -79,11 +79,11 @@ Just follow the instructions on the screen. You can select the default settings 
 
 For the app to function correctly, you must create the service instance and bind the service instance while deploying the app. The **cf push** command will ask, "Create services for application?" Answer yes, then you will be presented with a list of services. Choose **mongodb** from this list. Below, you can see some screenshots of what this should look like when deploying from the command line.
 
-![Deploy steps](/images/push-app1.png)
+![Deploy steps](images/push-app1.png)
 
-![Deploy steps](/images/push-app-2.png)
+![Deploy steps](images/push-app-2.png)
 
-![Deploy steps](/images/push-app-3.png)
+![Deploy steps](images/push-app-3.png)
 
 -   After the application is deployed using **cf push**, you can check the status of the app using the following command: **cf apps**. If the status is RUNNING, you can hit the URL in the browser and see the application is running.
 
@@ -97,12 +97,12 @@ For the app to function correctly, you must create the service instance and bind
 
 This is the home screen of the app. You can enter a twitter screen name in the text box and click the Analyze button to see their influence. You can also view any records saved in the database by clicking on the 'View Database' button.
 
-![image](/images/home.png)
+![image](images/home.png)
 
 After entering the twitter name and clicking the Analyze button, you'll be able to see the influence analysis of that person on the left side. You will also see their last 10 tweets and any recent mentions in the tweets plotted on Google Maps (if there is geolocation data for a tweet).
 
-![image](/images/results.png)
+![image](images/results.png)
 
 These are the records of the Influencers in the database. The user can also delete the records.
 
-![image](/images/saved_records.png)
+![image](images/saved_records.png)
