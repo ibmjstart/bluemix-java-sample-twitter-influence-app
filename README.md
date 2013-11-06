@@ -1,5 +1,13 @@
 # How to Run and Deploy the Twitter Influence Analyzer #
 
+## Overview of the app ##
+
+This is a Java app that uses the following cloud services:
+
+-   Company Text Analytics Service
+-   Name Text Analytics Service
+-   MongoDB (backend database)
+
 ## Prerequisites ##
 
 Before we begin, we first need to install the command line tool that will be used to upload and manage your application. Cloud Foundry uses a tool called [**cf**](https://github.com/cloudfoundry/cf). This tool is written in Ruby, so you must have Ruby installed. If you are running on Windows, you can install Ruby from [this](http://rubyinstaller.org/downloads/) website. 
@@ -38,12 +46,6 @@ If you want to use Eclipse to work on it, there are two ways you can get the sou
 	4. Then File->Import
 	5. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
 	6. Click next and then Finish and the project should be imported into Eclipse
-
-This is a Java app that uses the following cloud services:
-
--	Company Text Analytics Service
--   Name Text Analytics Service
--   MongoDB (backend database)
 
 ## External and Public APIs ##
 
