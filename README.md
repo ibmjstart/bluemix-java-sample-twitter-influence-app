@@ -28,22 +28,24 @@ The source for this app is at GitHub so, for example, if you are using the comma
 		
 If you want to use Eclipse to work on it, there are two ways you can get the source into Eclipse:
 
-1. Import the Eclipse project by following these instructions:
-	1. Start by cloning the repository, as described above
-	2. Open Eclipse
-	3. Select File->Import
-	4. Under the header labeled "General", click "Existing Projects Into Workspace" and click Next
-	5. Click "Browse" next to the first text field, and navigate to the cloned repository and find the folder labeled "app" and click ok.
-	6. Under Projects you should now see a project called "twitter_influence_analyzer", make sure the checkbox next to the "twitter_influence_analyzer" project is checked and then click Finish
-	7. You should now see the "twitter_influence_analyzer" project in your list of projects in Eclipse.
+Option A. Import the Eclipse project by following these instructions:
+  1. Start by cloning the repository, as described above
+  2. Open Eclipse
+  3. Select File->Import
+  4. Under the header labeled "General", click "Existing Projects Into Workspace" and click Next
+  5. Click "Browse" next to the first text field, and navigate to the cloned repository and find the folder labeled "app" and click ok.
+  6. Under Projects you should now see a project called "twitter_influence_analyzer", make sure the checkbox next to the "twitter_influence_analyzer" project is checked and then click Finish
+  7. You should now see the "twitter_influence_analyzer" project in your list of projects in Eclipse.
 
-2. Import the WAR File
-	1. Navigate to https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/releases
-	2. Click the green button labeled "twitter_influence_analyzer.war" and that will download the WAR file.
-	3. Open Eclipse
-	4. Then File->Import
-	5. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
-	6. Click next and then Finish and the project should be imported into Eclipse
+ -OR-
+ 
+Option B. Import the WAR File
+  1. Navigate to https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/releases
+  2. Click the green button labeled "twitter_influence_analyzer.war" and that will download the WAR file.
+  3. Open Eclipse
+  4. Then File->Import
+  5. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
+  6. Click next and then Finish and the project should be imported into Eclipse
 
 ## External and Public APIs ##
 
