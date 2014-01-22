@@ -5,6 +5,8 @@
 This is a Java app that uses the following cloud services:
 
 -   Company Text Analytics Service
+-   Name Text Analytics Services
+-   MongoDB
 
 ## Prerequisites ##
 
