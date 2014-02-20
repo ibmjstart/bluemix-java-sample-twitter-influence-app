@@ -12,28 +12,33 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
      http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
-## Prerequisites ##
-
-Before we begin, we first need to install the command line tool that will be used to upload and manage your application. Cloud Foundry uses a tool called [**cf**](https://github.com/cloudfoundry/cf). This tool is written in Ruby, so you must have Ruby installed. If you are running on Windows, you can install Ruby from [this](http://rubyinstaller.org/downloads/) website. 
-
-For Linux systems, consult your documentation for how to install the **ruby** package - for Ubuntu the command:
-
-		apt-get install ruby
-
-should work for you.
-
-Once Ruby is installed, cf can be installed by using the **gem install** command:
         
-		gem install cf
-        
-## Download the App ##
+## Pushing the app using Eclipse ##
 
-The source for this app is at GitHub so, for example, if you are using the command line you can clone the repository like this:
+### Step 1: Prerequisites ###
 
-		git clone https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git
+#### • Download Source ####
+
+The source for this app is at GitHub so, you can either download the zip file or clone the repository from the command line.
+
+| Download Zip | [`https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/archive/master.zip`](https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/archive/master.zip) |
+|-----------|----------------------------------------------------------------------------------------|
+| Git Clone:| `git clone https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git` |
+
+#### • Download Cloud Foundry Plug-in ####
+
+You will also need to download the Cloud Foundry plug-in for Eclipse.  To do this, go to Eclipse and follow the instructions below:
+
+  1. Click: Help > Eclipse Marketplace...
+  2. Search: "Cloud Foundry"
+  3. Look for the item titled: "Cloud Foundry Integration for Eclipse x.x.x" (It should be the first listing)
+  4. Click: Install
+    
+![logo](http://docs.cloudfoundry.com/images/sts/eclipse-marketplace.png)
+
+### Step 2. Import the project into Eclipse ###
 		
-If you want to use Eclipse to work on it, there are two ways you can get the source into Eclipse:
+Next, you will need to import the project into [**Eclipse**](https://www.eclipse.org/downloads/).  There are two ways you can get the source into Eclipse:
 
 Option A. Import the Eclipse project by following these instructions:
   1. Start by cloning the repository, as described above
@@ -54,53 +59,69 @@ Option B. Import the WAR File
   5. Scroll down to the "Web" section, expand that section and click WAR File then click Next.
   6. Click next and then Finish and the project should be imported into Eclipse
 
-## External and Public APIs ##
+### Step 3. Acquiring External and Public APIs ###
 
 This app uses some external APIs. You need to register the app with Twitter and Klout to get the keys and tokens.
 
-### Twitter v1.1 API ###
+#### • Twitter v1.1 API ####
 
 To access the Twitter API you need the consumer keys and access tokens, so you must register the app with Twitter. You can register your app [here](https://dev.twitter.com/).
 
 [More information on how to register the app with Twitter](registerTwitter.md)
 
-### Klout API ###
+#### • Klout API ####
 
 You can register the app with Klout [here](http://developer.klout.com/member/). When you register with Klout, you'll get a Klout Key, which you can use to create a Klout Object as shown in the code.
 
-### Google Maps v3 API ###
+#### • Google Maps v3 API ####
 
 This app uses the Google Maps v3 APIs. Google APIs are open for the developers and you do not need to register the app with Google. Here's the [link](https://developers.google.com/maps/documentation/javascript/tutorial) for the Google Maps APIs.
 
-The twitter credentials are entered in the file called as twitter4j.properties which is present in the classpath (src directory). Just copy paste the credentials in twitter4j.properties file that you get after registering the app with twitter. Also the Klout API key is entered in the file called klout.properties present in the classpath as shown below:
 
-![image](images/klout_key.png)
+### Step 4. Configuring the Project Files###
 
-## Deploying the App ##
+There are two files that need to be edited.  You can do this directly in Eclipse or using your favorite text editor.
 
-Once you have included the Twitter keys and tokens and Klout key as shown above, you are all set to deploy the app. In the terminal, go in the directory of the app. The application is wrapped in a WAR file. You can directly deploy/push the WAR file using push command:
+|                    Filenames                 |                              Path                               |
+|----------------------------------------------|-----------------------------------------------------------------|
+| `twitter4j.properties`<br>`klout.properties` | Local: `.../bluemix-java-sample-twitter-influence-app/app/src/` |
+| `twitter4j.properties`<br>`klout.properties` | Eclipse: `Project_Name > Java Resources > src`                  |            
 
-		cf push
+The twitter credentials are entered in the file called `twitter4j.properties`. Simply copy and paste the credentials from your new app on twitter into the appropriate categories in the file. Additionally, the Klout API key is entered in the file called `klout.properties`.
 
-Just follow the instructions on the screen. You can select the default settings for deploying the app, i.e. for URL, memory reservations (512 Recommended), number of instances. You need to bind the MongoDB service to the app.
+### Step 5. Deploying the app ###
 
-### Binding a Service to Your App ###
+#### • Set up Bluemix Server ####
 
-For the app to function correctly, you must create the service instance and bind the service instance while deploying the app. The **cf push** command will ask, "Create services for application?" Answer yes, then you will be presented with a list of services. Choose **mongodb** from this list. Below, you can see some screenshots of what this should look like when deploying from the command line.
+Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Fconcepts%2Fconcepts-4.htm) in Eclipse.  
 
-![Deploy steps](images/push-app1.png)
+  1. In the bottom window section, select the **Servers** tab.  (Alternatively, you can click: `Window > Show View > Servers`)
+  2. Right-Click inside the Servers panel and select `New > Server`
+  3. Select, `Pivotal > Cloud Foundry` and click Next.
+  4. Click Manage Cloud, then click Add
+  5. Enter: `Bluemix` as the name, and `https://api.ng.bluemix.net` as the URL
+  6. Click Finish, then click, OK
+  7. Enter your login information for Bluemix in the email and password sections.
+  8. From the URL dropdown menu, choose: Bluemix
+  9. Click: Validate Account
+  10. Click: Finish
 
-![Deploy steps](images/push-app-2.png)
+#### • Push the app ####
+  1. Right-Click on the Bluemix server and click: `Connect`
+  2. Right-Click on the Bluemix server and select: `Add and Remove...`
+  3. Select your Twitter Influence Analyzer project from the window on the left and click: `Add >`
+  4. Click: `Finish`
+  5. Enter a Name and select: Next
+  6. Enter a UNIQUE hostname and click: Finish
 
-![Deploy steps](images/push-app-3.png)
+**CONGRATS!**  Your app is now published to Bluemix.  
+(Note: It can take a few minutes to upload everything and deploy all of the services.)
 
--   After the application is deployed using **cf push**, you can check the status of the app using the following command: **cf apps**. If the status is RUNNING, you can hit the URL in the browser and see the application is running.
+### Step 6. Explore your app ####
 
-## Troubleshooting ##
-
--   Sometimes your app may not work as expected and debugging needs to be done. The cf command line tool can be used to assist with debugging. With the cf you can check your app's logs by typing the command **cf logs [app_name]** 
--   When you first start using the cf tool, you may potentially have trouble logging in due to no target being set. To view the target that is set, type **cf target** and if you want to set a new target type **cf target [target_url]**. Note: The target URL will usually be in the form of http://api.xxx.tld
--   From time to time your app may stop working, this means it could require a restart. To do this you must first stop it by typing **cf stop**. Once the app has been stopped, you can type **cf start** and if there are no other problems your app should start. 
+  1. In your web browser, go to: [https://ace.ng.bluemix.net](https://ace.ng.bluemix.net)
+  2. Login and find your new app on the Dashboard.
+  3. Below the name of your app is a link that takes you to the running app.  Click on that link.
 
 ## Screenshots ##
 
