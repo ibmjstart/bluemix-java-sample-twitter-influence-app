@@ -19,13 +19,10 @@ How to register the app with Twitter:
     
     ![image](images/app_details.png)
 
--   After registering the app you'll see the Consumer key and Consumer secret in the OAuth settings. But you also need to create access token and access token secret. You can do that by clicking the 'Create my access token'.
+-   After registering the app, you'll see the API key and API
+    secret values under the API Keys tab. To get your API access token, click
+    'Create my access token' at the bottom of the page and you will see the generated access token and access token secret 
+    ![image](images/TwitterAPI.png)
 
-    ![image](images/tokens.png)
-
--   You can see the generated access token and access token secret by clicking on the OAuth tool tab.
-
-    ![image](images/access_tokens.png)
-
--   You can just copy these tokens (consumer key, consumer secret, access token, access token secret) in your application and you are all set to use the Twitter API. You will need to check the [documentation](https://dev.twitter.com/docs/api/1.1) to use the various REST APIs.
+-   You can just copy these tokens (API  key, API secret, access token, access token secret) in your application and you are all set to use the Twitter API. You will need to check the [documentation](https://dev.twitter.com/docs/api/1.1) to use the various REST APIs.
 
