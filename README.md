@@ -118,10 +118,20 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
 **CONGRATS!**  Your app is now published to Bluemix.  
 (Note: It can take a few minutes to upload everything and deploy all of the services.)
 
-### Step 6. Explore your app ####
+### Step 6. Create a MongoDB service ###
 
   1. In your web browser, go to: [https://ace.ng.bluemix.net](https://ace.ng.bluemix.net)
-  2. Login and find your new app on the Dashboard.
+  2. Login and scroll down to the **Services** section
+  3. Click: `Add a service`
+  4. Click on the service labeled: `mongodb`
+  5. Click: `Add to Application`
+  6. From the drop down menu, select your new app.
+  7. Click: `Create`
+
+### Step 7. Explore your app ####
+
+  1. Navigate to the main dashboard view in Bluemix
+  2. Find your new app on the Dashboard.
   3. Below the name of your app is a link that takes you to the running app.  Click on that link.
 
 ## Screenshots ##
