@@ -145,13 +145,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <div class="navbar-inner">
         <div class="container">
           
-          <a class="brand pull-left" href="/index.html"><em>Twitter Influence Analyzer </em><small>v1.0</small></a>
+          <a class="brand pull-left" href="../"><em>Twitter Influence Analyzer </em><small>v1.0</small></a>
 	  
           <div class="nav-collapse collapse">
-           	<form action="/TwitterInfluenceAnalyzer/DispCalc" method="get" class="navbar-form pull-right">
- 		<input class="span3" type="text" name="twitter_name" value="" placeholder="Enter Twitter Name" />
-		<input type="submit" value="Analyze!" class= "btn btn-info">
-  		</form>
+			<a href="../" type="button" class="btn btn-primary">« Search again...</a>
           </div>  <!--  /.nav-collapse  -->
         </div>
       </div>
