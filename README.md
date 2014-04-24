@@ -109,7 +109,7 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
   10. Click: Finish
 
 #### • Push the app ####
-  1. Right-Click on the Bluemix server and click: `Connect`
+  1. Right-Click on the Bluemix server and click: `Connect`  (Optional)
   2. Right-Click on the Bluemix server and select: `Add and Remove...`
   3. Select your Twitter Influence Analyzer project from the window on the left and click: `Add >`
   4. Click: `Finish`
