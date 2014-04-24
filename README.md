@@ -38,7 +38,9 @@ You will also need to download the Cloud Foundry plug-in for Eclipse.  To do thi
 
 ### Step 2. Import the project into Eclipse ###
 		
-Next, you will need to import the project into [**Eclipse**](https://www.eclipse.org/downloads/).  There are two ways you can get the source into Eclipse:
+Next, you will need to import the project into [**Eclipse**](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2).  Recommendation is to use the Eclipse IDE for Java EE Developers.  
+
+There are two ways you can get the source into Eclipse:
 
 Option A. Import the Eclipse project by following these instructions:
   1. Start by cloning the repository, as described above
