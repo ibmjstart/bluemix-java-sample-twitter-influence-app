@@ -214,6 +214,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   		<td># Retweets</td>
   	</tr>
 		<%
+		@SuppressWarnings("unchecked")
 		java.util.List<twitter4j.Status> rtweets  = (java.util.List<twitter4j.Status>) request.getAttribute("rtweets");
 		int count = 0 ;
 		for ( twitter4j.Status tweet : rtweets) {

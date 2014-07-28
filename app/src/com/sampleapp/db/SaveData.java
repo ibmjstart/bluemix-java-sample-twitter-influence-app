@@ -46,14 +46,12 @@ package com.sampleapp.db;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
 
 /**
  * Servlet implementation class SaveData
@@ -89,9 +87,9 @@ public class SaveData extends HttpServlet {
 		DBUtil du = DBUtil.getInstance();
 		du.saveData(t_name,totalscore,fcount,fscore,rtcount,rtscore,mcount);
 
-		DBCursor cr = du.getCursor();
-		List<DBObject> records = cr.toArray();
-		request.setAttribute("records", records);
+		@SuppressWarnings("rawtypes")
+		List<Map> cr = du.getCursor();
+		request.setAttribute("records", cr);
 		request.setAttribute("totinf", du.getCount());
 
 		request.getRequestDispatcher("/displayall.jsp").forward(request, response);

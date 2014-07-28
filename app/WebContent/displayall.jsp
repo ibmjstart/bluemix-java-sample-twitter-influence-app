@@ -1,5 +1,5 @@
-<%@page import="com.mongodb.BasicDBObject"%>
-<%@page import="com.mongodb.DBObject"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -97,7 +97,7 @@
           <a class="brand pull-left" href="/index.html"><em>Twitter Influence Analyzer </em><small>v1.0</small></a>
 	  
           <div class="nav-collapse collapse">
-           	<form action="/TwitterInfluenceAnalyzer/DispCalc" method="get" class="navbar-form pull-right">
+           	<form action="/TwitterInfluenceAnalyzer/DispCalc" method="post" class="navbar-form pull-right">
  		<input class="span3" type="text" name="twitter_name" value="" placeholder="Enter Twitter Name" />
 		<input type="submit" value="Analyze!" class= "btn btn-info">
   		</form>
@@ -119,9 +119,10 @@
   	</thead>
   	<tbody>
 		<%
-		java.util.List<DBObject> records  = (java.util.List<DBObject>) request.getAttribute("records");
-		for (com.mongodb.DBObject record : records) {
-			String twitname = record.get("twitname").toString();
+		@SuppressWarnings("unchecked")
+		List<Map<String, Object>> records  = (List<Map<String, Object>>) request.getAttribute("records");
+		for (Map<String, Object> record : records) {
+			String twitname = record.get("_id").toString();
 			int mcount = Integer.parseInt(record.get("mcount").toString());
 			int fcount = Integer.parseInt(record.get("fcount").toString());
 			int fscore = Integer.parseInt(record.get("fscore").toString());

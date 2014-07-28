@@ -44,24 +44,32 @@
 /*-------------------------------------------------------------------*/
 package com.sampleapp.db;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.json.*;
-
-import com.mongodb.*;
+//import com.mongodb.*;
+import org.ektorp.*;
+import org.ektorp.http.HttpClient;
+import org.ektorp.http.StdHttpClient;
+import org.ektorp.impl.StdCouchDbConnector;
+import org.ektorp.impl.StdCouchDbInstance;
 
 public class DBUtil {
 
 	// For grabbing vcap_services info
 	private Map<String, String> env;
 	private String vcap;
-	private String host, port, username, password, database;
+	private String host, port, url;
+	// username and password not currently used
+	//private String host, port, username, password, url;
+	private String dbname = "twitter-influence-analyzer";
 	
-	// For interacting with mongo
-	private Mongo mongoClient;
-	private DB db;
-	private DBCollection infColl; // influencer collection
+	// For interacting with Cloudant
+	protected StdCouchDbInstance dbInstance;
+	protected StdCouchDbConnector db;
 	
 	// Make this a singleton
 	private static DBUtil instance;
@@ -87,39 +95,38 @@ public class DBUtil {
 		try {
 			JSONObject vcap_services = new JSONObject(vcap);
 			
+			@SuppressWarnings("rawtypes")
 			Iterator iter = vcap_services.keys();
-			JSONArray mongo = null;
+			JSONArray cloudant = null;
 			
-			// find instance of mongodb bound to app
+			// find instance of cloudant bound to app
 			while(iter.hasNext()){
 				String key = (String)iter.next();
-				if(key.startsWith("mongodb")){
-					mongo = vcap_services.getJSONArray(key);
+				if(key.startsWith("cloudant")){
+					cloudant = vcap_services.getJSONArray(key);
 				}
 			}
 			
-			JSONObject instance = mongo.getJSONObject(0); // Grab the first instance of mongoDB for this app (there is only one)
+			JSONObject instance = cloudant.getJSONObject(0); // Grab the first instance of mongoDB for this app (there is only one)
 			JSONObject credentials = instance.getJSONObject("credentials");
-			host = credentials.getString("hostname");
+			host = credentials.getString("host");
 			port = credentials.getString("port");
-			username = credentials.getString("username");
-			password = credentials.getString("password");
-			database = credentials.getString("db");
+			// not currently in use, maybe in future versions of cloudant
+			//username = credentials.getString("username");
+			//password = credentials.getString("password");
+			url = credentials.getString("url");
 
 			System.out.println("Found all the params");
 			
-			// Mongo initialization
-			mongoClient = new Mongo(host,Integer.parseInt(port));
-			db = mongoClient.getDB(database);
-			
-			System.out.println("Connected to mongoDB on " + host + ":" + port);
+			// cloudant initialization
+		    HttpClient httpClient = new StdHttpClient.Builder().url(url).build();
+		    dbInstance = new StdCouchDbInstance(httpClient);
+		    db = new StdCouchDbConnector(dbname, dbInstance);
+		    
+		    db.createDatabaseIfNotExists();
+		                
+			System.out.println("Connected to cloudant on " + host + ":" + port);
 
-			if (db.authenticate(username, password.toCharArray())) {
-				infColl = db.getCollection("infcollection");
-				System.out.println("Authenticated with mongoDB successfully");
-			} else {
-				throw new Exception("Authentication Failed");
-			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -129,52 +136,67 @@ public class DBUtil {
 	public void saveData(String t_name, int totalscore, int fcount, int fscore, int rtcount, int rtscore, int mcount) {
 		// check whether the document is present in the database
 		// if not present just insert new doc or else just update the existing doc. 
-		BasicDBObject query = new BasicDBObject("twitname", t_name);
+//		boolean documentExists = repo.contains(t_name);
+		//BasicDBObject query = new BasicDBObject("twitname", t_name);
 		
-		boolean documentExists = infColl.find(query).count() != 0;
+		//boolean documentExists = infColl.find(query).count() != 0;
+		
+		boolean documentExists = db.contains(t_name);
 		
 		if (documentExists) {
 			// Update the existing record
-			infColl.update(new BasicDBObject().append("twitname",t_name), new BasicDBObject().append("$set",new BasicDBObject().append("totalscore",totalscore)));
-			infColl.update(new BasicDBObject().append("twitname",t_name), new BasicDBObject().append("$set",new BasicDBObject().append("fcount",fcount)));
-			infColl.update(new BasicDBObject().append("twitname",t_name), new BasicDBObject().append("$set",new BasicDBObject().append("fscore",fscore)));
-			infColl.update(new BasicDBObject().append("twitname",t_name), new BasicDBObject().append("$set",new BasicDBObject().append("rtcount",rtcount)));
-			infColl.update(new BasicDBObject().append("twitname",t_name), new BasicDBObject().append("$set",new BasicDBObject().append("rtscore",rtscore)));
-			infColl.update(new BasicDBObject().append("twitname",t_name), new BasicDBObject().append("$set",new BasicDBObject().append("mcount",mcount)));
+			@SuppressWarnings("unchecked")
+			Map<String, Object> doc = db.get(Map.class, t_name);
+			//Map<String, Object> doc = new HashMap<String, Object>();
+			doc.put("_id", t_name);
+			doc.put("totalscore", totalscore);
+			doc.put("fcount", fcount);
+			doc.put("fscore", fscore);
+			doc.put("rtcount",  rtcount);
+			doc.put("rtscore", rtscore);
+			doc.put("mcount", mcount);
+			db.update(doc);
 			
 			System.out.println("Existing document updated");
 		} else {
 			// Insert the new record
-			BasicDBObject doc = new BasicDBObject("twitname", t_name)
-					.append("totalscore", totalscore)
-					.append("fcount", fcount)
-					.append("fscore", fscore)
-					.append("rtcount", rtcount)
-					.append("rtscore", rtscore)
-					.append("mcount", mcount);
-			
-			infColl.insert(doc);
+			Map<String, Object> doc = new HashMap<String, Object>();
+			doc.put("_id",  t_name);
+			doc.put("totalscore", totalscore);
+			doc.put("fcount", fcount);
+			doc.put("fscore", fscore);
+			doc.put("rtcount", rtcount);
+			doc.put("rtscore", rtscore);
+			doc.put("mcount", mcount);
+			db.create(doc);
+
 			System.out.println("New record successfully inserted");
 		}
 	}
 	
 	// delete the selected record from mongoDB
 	public void delSelected(String twitname){
-		infColl.remove(new BasicDBObject().append("twitname", twitname));
+		@SuppressWarnings("unchecked")
+		Map<String, Object> doc = db.get(Map.class, twitname);
+		db.delete(doc);
 		System.out.println(twitname + " record deleted");
 	}
 	
 	// deletes all the records from mongoDB
 	public void clearAll() {
-		infColl.remove(new BasicDBObject());
+		dbInstance.deleteDatabase(dbname);
+		db = new StdCouchDbConnector(dbname, dbInstance);
+	    db.createDatabaseIfNotExists();
 		System.out.println("Deleted all records");
 	}
 	
-	public DBCursor getCursor () { 
-		return infColl.find();
+	@SuppressWarnings("rawtypes")
+	public List<Map> getCursor () { 
+		ViewQuery q = new ViewQuery().allDocs().includeDocs(true);
+		return db.queryView(q, Map.class);
 	}
 	
 	public int getCount() {
-		return (int) infColl.getCount();
+		return db.getAllDocIds().size();
 	}
 }
