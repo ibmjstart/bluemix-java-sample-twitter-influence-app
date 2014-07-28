@@ -4,7 +4,7 @@
 
 This is a Java app that uses the following cloud services:
 
--   MongoDB
+-   Cloudant
 
 ## License ##
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
@@ -114,18 +114,18 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
   3. Select your Twitter Influence Analyzer project from the window on the left and click: `Add >`
   4. Click: `Finish`
   5. Enter a Name and select: Next
-  6. Enter a THE SAME hostname that you used to register with Twitter. (e.g. `https://`**`myTwitterApp`**`.ng.bluemix.net`)
+  6. Enter a THE SAME hostname that you used to register with Twitter. (e.g. `https://`**`myTwitterApp`**`.mybluemix.net`)
   7. Click: Finish
 
 **CONGRATS!**  Your app is now published to Bluemix.  
 (Note: It can take a few minutes to upload everything and deploy all of the services.)
 
-### Step 6. Create a MongoDB service ###
+### Step 6. Create a Cloudant service ###
 
   1. In your web browser, go to: [https://ace.ng.bluemix.net](https://ace.ng.bluemix.net)
   2. Login and scroll down to the **Services** section
   3. Click: `Add a service`
-  4. Click on the service labeled: `mongodb`
+  4. Click on the service labeled: `CloudantNoSQLDB`
   5. Click: `Add to Application`
   6. From the drop down menu, select your new app.
   7. Click: `Create`
