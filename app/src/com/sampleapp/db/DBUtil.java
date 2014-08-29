@@ -49,13 +49,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.json.*;
 //import com.mongodb.*;
-import org.ektorp.*;
+import org.ektorp.ViewQuery;
 import org.ektorp.http.HttpClient;
 import org.ektorp.http.StdHttpClient;
 import org.ektorp.impl.StdCouchDbConnector;
 import org.ektorp.impl.StdCouchDbInstance;
+
+import twitter4j.JSONArray;
+import twitter4j.JSONObject;
 
 public class DBUtil {
 

@@ -6,14 +6,6 @@
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
@@ -51,5 +43,15 @@
 	  <artifactId>jackson-annotations</artifactId>
 	  <version>2.4.0</version>
     </dependency>
+    <dependency>
+    	<groupId>org.twitter4j</groupId>
+    	<artifactId>twitter4j-core</artifactId>
+    	<version>4.0.2</version>
+    </dependency>
+     <dependency>
+    	<groupId>org.klout4j</groupId>
+    	<artifactId>klout4j</artifactId>
+    	<version>1.1.7</version>
+    </dependency> 
   </dependencies>
 </project>
