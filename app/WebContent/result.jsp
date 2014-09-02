@@ -165,10 +165,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <td>Twitter Name:</td>
   <td><%= request.getAttribute("t_name") %></td>
   </tr>
-  <tr>
+  <%-- <tr>
   <td>Klout Score: </td>
   <td><%= (String) request.getAttribute("score") %></td>
-  </tr>
+  </tr> --%>
   <tr>
   <td># of Twitter Followers:</td>
   <td><%= request.getAttribute("fcount") %></td>

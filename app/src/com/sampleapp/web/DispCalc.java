@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.klout4j.Klout;
-import org.klout4j.KloutScore;
-
 import twitter4j.Paging;
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -24,6 +21,7 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
+import wrapper.Klout;
 
 /**
  * Servlet implementation class DispCalc
@@ -50,12 +48,11 @@ public class DispCalc extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String twitterUsername = request.getParameter("twitter_name");
-
 		// The factory instance is re-useable and thread safe.
 		Twitter twitter = new TwitterFactory().getInstance();
 
 		try {
-			User a_name = twitter.showUser(twitterUsername);
+			twitter4j.User a_name = twitter.showUser(twitterUsername);
 			int followerCount = a_name.getFollowersCount();
 			List<Status> retweets = twitter.getUserTimeline(twitterUsername, new Paging(1, 10)); // get the first ten tweets
 			int retweetCount = 0;
@@ -137,8 +134,9 @@ public class DispCalc extends HttpServlet {
 			String kloutScore = "";
 
 			try {
-				KloutScore kScore = klout.kloutScore(twitterUsername);
-				kloutScore = Double.toString(kScore.getKscore());
+//				wrapper.User kUser = klout.getUser(twitterUsername);
+//				double kScore = kUser.score();
+//				kloutScore = Double.toString(kScore);
 			} catch (Exception e){
 				e.printStackTrace();
 				kloutScore = "n/a";

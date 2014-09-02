@@ -48,10 +48,5 @@
     	<artifactId>twitter4j-core</artifactId>
     	<version>4.0.2</version>
     </dependency>
-     <dependency>
-    	<groupId>org.klout4j</groupId>
-    	<artifactId>klout4j</artifactId>
-    	<version>1.1.7</version>
-    </dependency> 
   </dependencies>
 </project>
