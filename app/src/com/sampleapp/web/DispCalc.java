@@ -6,6 +6,7 @@ package com.sampleapp.web;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
@@ -21,14 +22,18 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
-import wrapper.Klout;
+import twitter4j.auth.AccessToken;
 
 /**
  * Servlet implementation class DispCalc
  */
 public class DispCalc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private Map<String, String> env;
+	private String consumer_key;
+	private String consumer_secret;
+	private String access_token;
+	private String access_key;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -50,8 +55,18 @@ public class DispCalc extends HttpServlet {
 		String twitterUsername = request.getParameter("twitter_name");
 		// The factory instance is re-useable and thread safe.
 		Twitter twitter = new TwitterFactory().getInstance();
+		env = System.getenv();
+		consumer_key = env.get("TWITTER_CONSUMER_KEY");
+		consumer_secret = env.get("TWITTER_CONSUMER_SECRET");
+		access_token = env.get("TWITTER_ACCESS_TOKEN");
+		access_key = env.get("TWITTER_ACCESS_KEY");
 
+		AccessToken accessToken= new AccessToken(access_token, access_key);
+		
 		try {
+			twitter.setOAuthConsumer(consumer_key, consumer_secret);
+			twitter.setOAuthAccessToken(accessToken);
+
 			twitter4j.User a_name = twitter.showUser(twitterUsername);
 			int followerCount = a_name.getFollowersCount();
 			List<Status> retweets = twitter.getUserTimeline(twitterUsername, new Paging(1, 10)); // get the first ten tweets
@@ -123,13 +138,14 @@ public class DispCalc extends HttpServlet {
 			query.setResultType(Query.RECENT);
 			QueryResult result1 = twitter.search(query1);
 
+//TODO: Add Klout API back in using user defined variables.
 			//  Klout API calls 
-			Properties prop = new Properties();
+//			Properties prop = new Properties();
 			//load a properties file from the classpath
-			prop.load(getClass().getClassLoader().getResourceAsStream("klout.properties"));
-			String kloutKey = prop.getProperty("kloutkey"); 
+//			prop.load(getClass().getClassLoader().getResourceAsStream("klout.properties"));
+//			String kloutKey = prop.getProperty("kloutkey"); 
 
-			Klout klout = new Klout(kloutKey);
+//			Klout klout = new Klout(kloutKey);
 
 			String kloutScore = "";
 

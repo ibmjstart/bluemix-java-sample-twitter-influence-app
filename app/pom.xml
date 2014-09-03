@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>twitter_influence_analyzer</groupId>
   <artifactId>twitter_influence_analyzer</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.2</version>
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -13,6 +13,18 @@
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>${build.sourceDirectory}</directory>
+              <targetPath>WEB-INF/src</targetPath>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
       <plugin>
