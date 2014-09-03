@@ -17,14 +17,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 ### Step 1: Prerequisites ###
 
-#### • Download Source ####
-
-The source for this app is at GitHub so, you can either download the zip file or clone the repository from the command line.
-
-| Download Zip | [`https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/archive/master.zip`](https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/archive/master.zip) |
-|-----------|----------------------------------------------------------------------------------------|
-| Git Clone:| `git clone https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git` |
-
 #### • Download IBM Bluemix Plug-in ####
 
 You will also need to download the Cloud Foundry plug-in for Eclipse.  To do this, go to Eclipse and follow the instructions below:
