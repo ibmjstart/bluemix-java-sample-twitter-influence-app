@@ -46,6 +46,7 @@ Option A. Import the WAR File (Preferred)
   -OR-
 
 Option B. Import the Eclipse project by following these instructions: (Only if you want to modify the source code.)
+
   1. Open Eclipse
   2. Select File->Import
   3. Under the header labeled "Git", click "Projects from Git" and click `Next`
@@ -109,9 +110,7 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
 
    ![image](images/environment_variables.png)
 
-   You may do this step later, but your application will fail without it.
-
-  9. Click: Finish. Your app will deploy to Bluemix. If you haven't already created and bound your cloudant service, please refer to Step 5: Create a Cloudant Service
+   You may do this step later, but your application will fail without it. Click: `Finish`. Your app will deploy to Bluemix. If you haven't already created and bound your cloudant service, please refer to Step 5: Create a Cloudant Service
 
 **CONGRATS!**  Your app is now published to Bluemix.  
 (Note: It can take a few minutes to upload everything and deploy all of the services.)

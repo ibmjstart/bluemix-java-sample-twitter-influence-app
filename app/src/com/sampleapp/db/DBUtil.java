@@ -104,7 +104,7 @@ public class DBUtil {
 			// find instance of cloudant bound to app
 			while(iter.hasNext()){
 				String key = (String)iter.next();
-				if(key.startsWith("cloudant")){
+				if(key.startsWith("cloudantNoSQLDB")){
 					cloudant = vcap_services.getJSONArray(key);
 				}
 			}
