@@ -19,7 +19,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #### • Download IBM Bluemix Plug-in ####
 
-You will also need to download the Cloud Foundry plug-in for Eclipse.  To do this, go to Eclipse and follow the instructions below:
+You will also need to download the IBM Bluemix plug-in for Eclipse.  To do this, go to Eclipse and follow the instructions below:
 
   1. Click: Help > Eclipse Marketplace...
   2. Search: "Bluemix"
@@ -32,9 +32,7 @@ You will also need to download the Cloud Foundry plug-in for Eclipse.  To do thi
 
 Next, you will need to import the project into [**Eclipse**](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2).  Recommendation is to use the Eclipse IDE for Java EE Developers.  
 
-There are two ways you can get the source into Eclipse:
-
-Option A. Import the WAR File (Preferred)
+#### Import the WAR File ####
   1. Navigate to https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app/releases
   2. Click the green button labeled "twitter_influence_analyzer-1.2.war" and that will download the WAR file.
   3. Open Eclipse
@@ -43,31 +41,20 @@ Option A. Import the WAR File (Preferred)
   6. Select the war file from where it was downloaded. Ensure that `Target Runtime` is targeting IBM Bluemix.
   7. Click `Next` and then `Finish` and the project should be imported into Eclipse
 
-  -OR-
-
-Option B. Import the Eclipse project by following these instructions: (Only if you want to modify the source code.)
-
-  1. Open Eclipse
-  2. Select File->Import
-  3. Under the header labeled "Git", click "Projects from Git" and click `Next`
-  4. Select `Clone URI` and click `Next`
-  5. Copy paste the clone URL into the next page. Hit `Next`
-
-  ![image](images/clone_url.png)
-  6. Select the Branch to clone (you should only need Master). Click `Next`
-  7. Name the destination directory. click `Next`
-  8. Check `Import Existing Projects` and click `Next`
-  9. Check the project, and click `Finish`
-
 ### Step 3. Acquiring External and Public APIs ###
 
 **Your app will not work if you do not add your Twitter API keys and access Tokens to your environment variable.**
 
-This app uses some external APIs. You need to register the app with Twitter and Klout to get the keys and tokens.
+This app uses some external APIs. You need to register the app with Twitter to get the keys and tokens.
 
 #### • Twitter v1.1 API ####
 
 To access the Twitter API you need the consumer keys and access tokens, so you must register the app with Twitter. You can register your app [here](https://dev.twitter.com/).
+
+When you set up your twitter application settings, it will ask for the fully-qualified URL to your website. This should match, exactly, the URL you plan to use for your bluemix app.
+For example, if your Bluemix app will be located at `http://jstart-tia.mybluemix.net`, then the `Website` text box under Create an Application should read that exact URL. You will have to match this
+to the subdomain that you give when your app is deployed.
+
 
 [More information on how to register the app with Twitter](registerTwitter.md)
 
@@ -97,7 +84,8 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
   4. Click: `Finish`
   5. Enter a Name for your app and select: `Next`
   6. Enter THE SAME subdomain that you used to register with Twitter. (e.g. `https://`**`myTwitterApp`**`.mybluemix.net`) Click `Next`
-  7. (Optional) Bind the Cloudant NoSQLDB service. If it is not already created, select the icon in the top right. (Refer to Option B of Creating a Cloudant Service for how to search and create the service.) Hit `Next`
+  7. Create and bind the Cloudant NoSQLDB service. If it is not already created, select the icon in the top right. (Refer to Option B of [Creating a Cloudant Service](#cloudant) for how to search and create the service.)
+    The application is built to assume that you leave the default name of "cloudantNoSQLDB" for your service name. If you change the name, the app may break. Hit `Next`  
   8. **IMPORTANT:** Add your Twitter API credentials under environment variables. Right click, and select `Add`. Provide this information:
 
 
@@ -110,12 +98,12 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
 
    ![image](images/environment_variables.png)
 
-   You may do this step later, but your application will fail without it. Click: `Finish`. Your app will deploy to Bluemix. If you haven't already created and bound your cloudant service, please refer to Step 5: Create a Cloudant Service
+   9. You may do this step later, but your application will fail without it. Click: `Finish`. Your app will deploy to Bluemix. If you haven't already created and bound your cloudant service, please refer to Step 5: Create a Cloudant Service
 
 **CONGRATS!**  Your app is now published to Bluemix.  
 (Note: It can take a few minutes to upload everything and deploy all of the services.)
 
-### Step 5. Create a Cloudant service ###
+### <a name="cloudant"></a> Step 5. Create a Cloudant service ###
 
 There are two ways to create and bind the cloudant service to your application.
 

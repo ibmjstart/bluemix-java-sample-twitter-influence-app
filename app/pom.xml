@@ -6,6 +6,14 @@
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <resources>
+        <resource>
+            <directory>${build.sourceDirectory}</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+    	</resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
@@ -13,18 +21,6 @@
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-      <plugin>
-      	<groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <configuration>
-          <webResources>
-            <resource>
-              <directory>${build.sourceDirectory}</directory>
-              <targetPath>WEB-INF/src</targetPath>
-            </resource>
-          </webResources>
         </configuration>
       </plugin>
       <plugin>
@@ -48,7 +44,6 @@
         <groupId>org.ektorp</groupId>
         <artifactId>org.ektorp</artifactId>
         <version>1.4.1</version>
-        <scope>provided</scope>
     </dependency>
     <dependency>
 	  <groupId>com.fasterxml.jackson.core</groupId>
