@@ -124,7 +124,7 @@ Option B. Using the Eclipse plugin for Bluemix
   ![image](images/cloudant_service.png)
   4. Select `Finish`. This will create the service in your Bluemix organization.
   5. Under services, where your new service (with the name you specified) shows, drag the new service to "Application Services" on the right side of Eclipse. (Verify that you have the right application with the application name.)
-  ![image](images/bluemix_plugin_dashboard_small.png)
+  ![image](images/Bluemix_plugin_dashboard_small.png)
   6. Click `Update and Restart` to restart your app with the new service.
 
 
