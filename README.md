@@ -6,6 +6,18 @@ This is a Java app that uses the following cloud services:
 
 -   Cloudant
 
+Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix. Note the app will not yet work; you need to set the environment variables.
+
+[![Deploy to Bluemix](images/deploy-button.png)](https://bluemix.net/deploy?repository=https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git)
+
+The environment variables are your twitter and klout API keys.
+
+To set them, click on your app within Bluemix, click `Environment Variables` on the left pane, then select `USER_DEFINED` to add the three necessary environment variables. Put in your Twitter consumer key, Twitter consumer secret, and Klout key with the EXACT names shown below:
+
+  ![image](images/environmentVarSetup.png)
+
+Hit save and you're done!
+
 ## License ##
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
