@@ -1,7 +1,7 @@
 ---
 declared-services:
   cloudant-JTIA:
-    type: cloudantNoSQLDB
+    label: cloudantNoSQLDB
     plan: Shared
     
 applications:
