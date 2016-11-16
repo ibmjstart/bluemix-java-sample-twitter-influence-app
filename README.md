@@ -132,8 +132,7 @@ Option A. Using the ACE UI:
 Option B. Using the Eclipse plugin for Bluemix
   1. Double click your application under the IBM Bluemix server.
   2. Under the services selection, select the "add a service icon" in the top right. (It is just an icon)
-  3. Search for cloudantNoSQLDB, and select the first option. Give it a name and pick the shared plan.
-  ![image](images/cloudant_service.png)
+  3. Search for cloudantNoSQLDB, and select the first option. Give it a name and pick the "Lite" plan.
   4. Select `Finish`. This will create the service in your Bluemix organization.
   5. Under services, where your new service (with the name you specified) shows, drag the new service to "Application Services" on the right side of Eclipse. (Verify that you have the right application with the application name.)
   ![image](images/Bluemix_plugin_dashboard_small.png)

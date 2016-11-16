@@ -2,8 +2,8 @@
 declared-services:
   cloudant-JTIA:
     label: cloudantNoSQLDB
-    plan: Shared
-    
+    plan: Lite
+
 applications:
 - name: JavaTwitterInfluencer
   memory: 256M #The maximum memory to allocate to each application instance
