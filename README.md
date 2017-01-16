@@ -37,13 +37,9 @@ Before you can get your app running, you need to get your Twitter API keys and s
 
 10. Once you're in the Runtime section, click on "Environment Variables", and add your Twitter and Klout API keys as shown below: (make sure the environemnt variable names match EXACTLY what is shown below, as in your Twitter API Consumer Key should be named "TWITTER_CONSUMER_KEY", your Twitter Consumer Secret as "TWITTER_CONSUMER_SECRET", your Twitter Access Token as "TWITTER_ACCESS_TOKEN", and your Twitter Access Token Secret as "TWITTER_ACCESS_KEY"). 
 
- ![image](images/Environment Variables.png)
+![image](images/javaenvs.png)
 
 Hit save and you're done! Your app is now live! In order to access it, go back to to the dashboard, and click on your app's Route URL. 
-
-  ![image](images/environmentVarSetup.png)
-
-Hit save and you're done!
 
 ## License ##
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
