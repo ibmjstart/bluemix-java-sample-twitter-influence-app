@@ -18,7 +18,7 @@ Before you set up your environment variables, you will need to find your callbac
 
 2. Once you have signed in, click on the blue "Deploy" button on the bottom right corner, and wait for it to finish creating and configuring your application. Again, your app will not yet be successfully deployed as your environment variables are not set up yet. Your screen should look like this:
 
- ![image](images/App Deploy.png)
+ ![image](images/javadeploy.png)
 
 3. Go to www.bluemix.net, and use the hamburger menu at the top right hand corner to to go to your Application Dashboard. Find our application.
 
