@@ -119,25 +119,36 @@ Make sure you are in the Java EE [perspective](http://help.eclipse.org/juno/inde
   4. Click: `Finish`
   5. Enter a Name for your app and select: `Next`
   6. Enter THE SAME subdomain that you used to register with Twitter. (e.g. `https://`**`myTwitterApp`**`.mybluemix.net`) Click `Next`
-  7. Create and bind the Cloudant NoSQLDB service. If it is not already created, select the icon in the top right. (Refer to Option B of [Creating a Cloudant Service](#cloudant) for how to search and create the service.)
+![image](images/appoperations.png)
+  7. You should see a screen like the one above. Create and bind the Cloudant NoSQLDB service. If it is not already created, select the icon in the top right. (Refer to Option B of [Creating a Cloudant Service](#cloudant) for how to search and create the service.)
     The application is built to assume that you leave the default name of "cloudantNoSQLDB" for your service name. If you change the name, the app may break. Hit `Next`  
-  8. **IMPORTANT:** Add your Twitter API credentials under environment variables. Right click, and select `Add`. Provide this information:
+ 8. **IMPORTANT:** Add your Twitter API credentials under environment variables:
+
+![image](images/appenvedit.png)
+
+     Right click, and select `Add`. Provide this information:
 
 
-   | Variable Name             |  Variable Value                      |
-   |---------------------------|--------------------------------      |
-   | TWITTER_CONSUMER_KEY      | `{Your Twitter API Key}`             |
-   | TWITTER_CONSUMER_SECRET   | `{Your Twitter API Secret}`          |
-   | TWITTER_ACCESS_TOKEN      | `{Your Twitter Access Token}`        |
-   | TWITTER_ACCESS_KEY        | `{Your Twitter Access Token Secret}` |
+    | Variable Name             |  Variable Value                      |
+    |---------------------------|--------------------------------      |
+    | TWITTER_CONSUMER_KEY      | `{Your Twitter API Key}`             |
+    | TWITTER_CONSUMER_SECRET   | `{Your Twitter API Secret}`          |
+    | TWITTER_ACCESS_TOKEN      | `{Your Twitter Access Token}`        |
+    | TWITTER_ACCESS_KEY        | `{Your Twitter Access Token Secret}` |
 
-   ![image](images/environment_variables.png)
 
-   9. You may do this step later, but your application will fail without it. Click: `Finish`. Your app will deploy to Bluemix. If you haven't already created and bound your cloudant service, please refer to Step 5: Create a Cloudant Service
+![image](images/environment_variables.png)
 
-**CONGRATS!**  Your app is now published to Bluemix.  
-(Note: It can take a few minutes to upload everything and deploy all of the services.)
+You may do this step later, but your application will fail without it. Click: `Finish`. Your app will deploy to Bluemix. If you haven't already created and bound your cloudant service, please refer to Step 5: Create a Cloudant Servic
 
+You may now push your app using the "start" or "push" button in the section shown below:
+
+![image](images/appstart.png)
+
+Congrats! your app is now published to Bluemix! You may now view your app by copying and pasting the url shown in the section below to your browser:
+
+![image](images/applink.png)
+  
 ### <a name="cloudant"></a> Step 5. Create a Cloudant service ###
 
 There are two ways to create and bind the cloudant service to your application.
