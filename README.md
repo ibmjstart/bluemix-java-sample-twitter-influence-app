@@ -10,9 +10,36 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/ibmjstart/bluemix-java-sample-twitter-influence-app.git)
 
-The environment variables are your Twitter API keys.
+### Getting Your Environment Variables (Twitter and Klout API Keys) ###
 
-To set them, click on your app within Bluemix, click `Environment Variables` on the left pane, then select `USER_DEFINED` to add the three necessary environment variables. Put in your Twitter credentials with the exact names shown below:
+Before you set up your environment variables, you will need to find your callback URL, which is just the URL the app will be running on:
+
+1. Once you click on the "Deploy to Bluemix" button above, you will be taken to a page and will either need to log in or create a Bluemix account.
+
+2. Once you have signed in, click on the blue "Deploy" button on the bottom right corner, and wait for it to finish creating and configuring your application. Again, your app will not yet be successfully deployed as your environment variables are not set up yet. Your screen should look like this:
+
+ ![image](images/App Deploy.png)
+
+3. Go to www.bluemix.net, and use the hamburger menu at the top right hand corner to to go to your Application Dashboard. Find our application.
+
+4. Copy the application's Route URL and save it to your clipboard. 
+
+Before you can get your app running, you need to get your Twitter API keys and set up your environment variables on Bluemix. 
+
+5. To get your Twitter API Keys, go here: 
+<https://apps.twitter.com> 
+
+6. Sign into your twitter account, click on "create new app", and fill out the form. For the callback URL, enter your Bluemix app's route URL you copied to your clipboard earlier. 
+
+7. Once you have generated your Twitter app, navigate to Keys and Access Tokens, locate your Consumer Key and Consumer Secret. We will come back to this later.
+
+9. Once you have your Twitter API keys generated, go back to www.bluemix.net, find your app on your Dashboard, click on it, and use the left panel to navigate to "Runtime". 
+
+10. Once you're in the Runtime section, click on "Environment Variables", and add your Twitter and Klout API keys as shown below: (make sure the environemnt variable names match EXACTLY what is shown below, as in your Twitter API Consumer Key should be named "TWITTER_CONSUMER_KEY", your Twitter Consumer Secret as "TWITTER_CONSUMER_SECRET", your Twitter Access Token as "TWITTER_ACCESS_TOKEN", and your Twitter Access Token Secret as "TWITTER_ACCESS_KEY"). 
+
+ ![image](images/Environment Variables.png)
+
+Hit save and you're done! Your app is now live! In order to access it, go back to to the dashboard, and click on your app's Route URL. 
 
   ![image](images/environmentVarSetup.png)
 
